@@ -12,6 +12,11 @@
  */
 
 /**
+ * Global Operations
+ */
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['excelExport'] = ["Excel Export", "Excel Export"];
+
+/**
  * Legends
  */
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['title_legend'] = "Basis Einstellungen";
@@ -48,7 +53,6 @@ $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['erg'] = "Ethik, Religion und
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['rzg'] = "Räume, Zeiten und Gesellschaft";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['rzg'] = "Räume, Zeiten und Gesellschaft";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['misc'] = "Allgemein";
-
 
 // Departments
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['kg'] = "Kindergarten";

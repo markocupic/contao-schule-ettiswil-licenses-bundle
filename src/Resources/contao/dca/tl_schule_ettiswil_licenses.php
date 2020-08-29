@@ -132,7 +132,7 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'inputType' => 'textarea',
             'exclude'   => false,
             'search'    => true,
-            'eval'      => ['rte' => 'tinyMCE', 'tl_class' => 'clr'],
+            'eval'      => ['tl_class' => 'clr'],
             'sql'       => 'text NOT NULL'
         ],
         'department' => [

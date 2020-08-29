@@ -58,12 +58,30 @@ class Excel
         // Get data
         $arrData = $this->prepareData();
 
-        foreach ($arrData as $intRow => $arrRow)
+        if (count($arrData) > 0)
         {
-            foreach ($arrRow as $intColumn => $strValue)
+            $intColumn = 0;
+            // Header
+            foreach ($arrData[0] as $k => $strValue)
             {
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($intColumn + 1, $intRow + 1, $strValue);
+                $intColumn++;
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($intColumn, 1, $k);
             }
+            // Data rows
+            foreach ($arrData as $intRow => $arrRow)
+            {
+                $intColumn = 0;
+                foreach ($arrRow as $key => $strValue)
+                {
+                    $intColumn++;
+
+                    $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow($intColumn, $intRow + 2, $strValue);
+                }
+            }
+        }
+        else
+        {
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(1, 1, 'No value provided');
         }
 
         // Send file to browser
@@ -92,7 +110,7 @@ class Excel
             ->execute();
         while ($db->next())
         {
-            $rows[] = $db->fetchRow();
+            $rows[] = $db->row();
         }
 
         return $rows;
