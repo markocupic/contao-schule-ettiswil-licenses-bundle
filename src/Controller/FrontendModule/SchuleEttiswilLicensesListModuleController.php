@@ -7,7 +7,7 @@
  * @author     Marko Cupic
  * @package    Contao Schule Ettiswil Licenses
  * @license    GPL-3.0-or-later
- * @see        https://github.com/markocupic/contao-schule-ettiswil-licenses
+ * @see        https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle
  *
  */
 
