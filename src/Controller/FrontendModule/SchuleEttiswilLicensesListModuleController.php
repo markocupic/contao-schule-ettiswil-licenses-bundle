@@ -26,9 +26,9 @@ use Contao\Template;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Twig\Environment as TwigEnvironment;
 
 /**
  * Class SchuleEttiswilLicensesListModuleController
@@ -37,19 +37,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleController
 {
-    /**
-     * @var PageModel
-     */
-    protected $page;
+    /** @var TwigEnvironment */
+    protected $twig;
 
     /**
      * SchuleEttiswilLicensesListModuleController constructor.
      *
-     * @param SessionInterface $session
+     * @param TwigEnvironment $twig
      */
-    public function __construct(SessionInterface $session)
+    public function __construct(TwigEnvironment $twig)
     {
-        $this->session = $session;
+        $this->twig = $twig;
     }
 
     /**
@@ -65,14 +63,6 @@ class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleC
      */
     public function __invoke(Request $request, ModuleModel $model, string $section, array $classes = null, PageModel $page = null): Response
     {
-        // Get the page model
-        $this->page = $page;
-
-        if ($this->page instanceof PageModel && $this->get('contao.routing.scope_matcher')->isFrontendRequest($request))
-        {
-            // If TL_MODE === 'FE'
-            $this->page->loadDetails();
-        }
 
         return parent::__invoke($request, $model, $section, $classes);
     }
@@ -88,9 +78,6 @@ class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleC
 
         $services['contao.framework'] = ContaoFramework::class;
         $services['database_connection'] = Connection::class;
-        $services['contao.routing.scope_matcher'] = ScopeMatcher::class;
-        $services['security.helper'] = Security::class;
-        $services['translator'] = TranslatorInterface::class;
 
         return $services;
     }
@@ -103,37 +90,32 @@ class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleC
      */
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
-        $userFirstname = 'DUDE';
-        $user = $this->get('security.helper')->getUser();
-        if ($user instanceof FrontendUser)
-        {
-            $userFirstname = $user->firstname;
-        }
+
 
         /** @var Date $dateAdapter */
         $dateAdapter = $this->get('contao.framework')->getAdapter(Date::class);
-        $intWeekday = $dateAdapter->parse('w');
-        $translator = $this->get('translator');
-        $strWeekday = $translator->trans('DAYS.' . $intWeekday, [], 'contao_default');
 
-        $arrGuests = [];
+        $arrLicenses = [];
         $stmt = $this->get('database_connection')
             ->executeQuery(
-                'SELECT * FROM tl_member WHERE gender=? ORDER BY lastname',
+                'SELECT * FROM tl_schule_ettiswil_licenses ORDER BY department',
                 ['female']
             );
-        while (false !== ($objMember = $stmt->fetch(\PDO::FETCH_OBJ)))
+        while (false !== ($objLicenses = $stmt->fetch(\PDO::FETCH_OBJ)))
         {
-            $arrGuests[] = $objMember->firstname;
+            $arrLicenses[] = $objLicenses;
         }
 
-        $template->helloTitle = sprintf(
-            'Hi %s, and welcome to the "Hello World Module". Today is %s.',
-            $userFirstname, $strWeekday
-        );
+        $template->licenses = $arrLicenses;
 
-        $template->helloText = 'Our guests today are: ' . implode(', ', $arrGuests);
-
-        return $template->getResponse();
+        /**
+         * Use twig template
+         */
+        return new Response($this->twig->render(
+            '@MarkocupicContaoSchuleEttiswilLicenses/FrontendModule/SchuleEttiswilLicensesListModule/mod_schule_ettiswil_licenses_list_module.html.twig',
+            [
+                'data' => $template,
+            ]
+        ));
     }
 }

@@ -2,9 +2,7 @@
 
 <?php $this->block("content"); ?>
 
-    <h3><?= $this->helloTitle ?></h3>
-    <p><?= $this->helloText ?></p>
-
+    <!-- use twig template -->
 
 <?php $this->endblock(); ?>
 

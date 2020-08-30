@@ -7,7 +7,7 @@ services:
     # Contao frontend module Markocupic\ContaoSchuleEttiswilLicensesBundle\Controller\FrontendModule\SchuleEttiswilLicensesListModuleController
     Markocupic\ContaoSchuleEttiswilLicensesBundle\Controller\FrontendModule\SchuleEttiswilLicensesListModuleController:
         arguments:
-            - '@session'
+            - '@twig'
         tags:
             - { name: contao.frontend_module, category: schule_ettiswil, template: mod_schule_ettiswil_licenses_list_module, type: schule_ettiswil_licenses_list_module }
             - { name: container.service_subscriber }

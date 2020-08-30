@@ -49,10 +49,17 @@ $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['de'] = "Deutsch";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['en'] = "Englisch";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['fr'] = "Französisch";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['pu'] = "Projektunterricht";
-$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['erg'] = "Ethik, Religion und Gemeinschaft";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['rzg'] = "Räume, Zeiten und Gesellschaft";
-$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['rzg'] = "Räume, Zeiten und Gesellschaft";
-$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['misc'] = "Allgemein";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['nat'] = "Natur und Technik";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['mint'] = "MINT";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['mu'] = "Musik";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['mui'] = "Medien und Informatik";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['nat'] = "Natur und Technik";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['lk'] = "Lebenskunde";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['bg'] = "Bildnerisches Gestalten";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['ttg'] = "Textiles- und Teschnisches Gestalten";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['bus'] = "Bewegung und Sport";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['misc'] = "Allgemein/Sonstige";
 
 // Departments
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['kg'] = "Kindergarten";
