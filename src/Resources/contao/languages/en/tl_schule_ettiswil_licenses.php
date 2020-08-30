@@ -66,6 +66,6 @@ $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['kg'] = "Kindergarten";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['ps'] = "Primarsstufe";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['iss'] = "ISS";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['if'] = "IF";
-$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['misc'] = "Allgemein";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['all'] = "Alle";
 
 

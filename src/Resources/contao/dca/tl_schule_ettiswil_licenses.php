@@ -142,7 +142,7 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'filter'    => true,
             'sorting'   => true,
             'reference' => $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses'],
-            'options'   => ['kg', 'ps', 'iss', 'if', 'misc'],
+            'options'   => ['kg', 'ps', 'iss', 'if', 'all'],
             'eval'      => ['mandatory' => true, 'includeBlankOption' => false, 'tl_class' => 'w50'],
             'sql'       => "varchar(255) NOT NULL default ''",
         ],
