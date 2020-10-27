@@ -17,18 +17,20 @@
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['excelExport'] = ["Excel Export", "Excel Export"];
 
 /**
- * Legends
- */
-$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['title_legend'] = "Basis Einstellungen";
-$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['config_legend'] = "Erweiterte Einstellungen";
-
-/**
  * Operations
  */
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['edit'] = ["Datensatz mit ID: %s bearbeiten", "Datensatz mit ID: %s bearbeiten"];
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['copy'] = ["Datensatz mit ID: %s kopieren", "Datensatz mit ID: %s kopieren"];
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['delete'] = ["Datensatz mit ID: %s löschen", "Datensatz mit ID: %s löschen"];
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['show'] = ["Datensatz mit ID: %s ansehen", "Datensatz mit ID: %s ansehen"];
+
+/**
+ * Legends
+ */
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['title_legend'] = "Basis Einstellungen";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['config_legend'] = "Erweiterte Einstellungen";
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['expirationDate_legend'] = "Ablaufdatum Einstellungen";
+
 
 /**
  * Fields
@@ -39,6 +41,7 @@ $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['passphrase'] = ["Passwort", 
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['department'] = ["Abteilung", "Wählen Sie die Abteilung aus."];
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['topic'] = ["Unterrichtsfach", "WählenSie das Unterrichtsfach aus."];
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['notice'] = ["Bemerkungen", "Geben Sie die Bemerkungen ein"];
+$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['expirationdate'] = ["Ablaufdatum", "Geben Sie das Ablafdatum der Software an."];
 
 /**
  * References
