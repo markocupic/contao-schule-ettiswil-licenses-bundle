@@ -106,7 +106,7 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'sorting'   => true,
             'flag'      => 1,
             'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'clr'],
-            'sql'       => 'varchar(255) NOT NULL default ""',
+            'sql'       => "varchar(255) NOT NULL default ''",
         ],
         'userid'         => [
             'inputType' => 'text',
@@ -116,7 +116,7 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'sorting'   => true,
             'flag'      => 1,
             'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
-            'sql'       => 'varchar(255) NOT NULL default ""',
+            'sql'       => "varchar(255) NOT NULL default ''",
         ],
         'passphrase'     => [
             'inputType' => 'text',
@@ -126,14 +126,14 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'sorting'   => true,
             'flag'      => 1,
             'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
-            'sql'       => 'varchar(255) NOT NULL default ""',
+            'sql'       => "varchar(255) NOT NULL default ''",
         ],
         'notice'         => [
             'inputType' => 'textarea',
             'exclude'   => true,
             'search'    => true,
             'eval'      => ['tl_class' => 'clr'],
-            'sql'       => 'text NOT NULL default ""',
+            'sql'       => "text NOT NULL default ''",
         ],
         'department'     => [
             'inputType' => 'select',
@@ -144,7 +144,7 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'reference' => $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses'],
             'options'   => ['kg', 'ps', 'iss', 'if', 'all'],
             'eval'      => ['mandatory' => true, 'includeBlankOption' => false, 'tl_class' => 'w50'],
-            'sql'       => 'varchar(255) NOT NULL default ""',
+            'sql'       => "varchar(255) NOT NULL default ''",
         ],
         'topic'          => [
             'inputType' => 'select',
@@ -155,13 +155,13 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'reference' => $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses'],
             'options'   => ['mt', 'de', 'en', 'fr', 'rzg', 'lk', 'pu', 'bus', 'nat', 'mu', 'mui', 'bg', 'ttg', 'misc'],
             'eval'      => ['mandatory' => true, 'includeBlankOption' => false, 'tl_class' => 'w50'],
-            'sql'       => 'varchar(255) NOT NULL default ""',
+            'sql'       => "varchar(255) NOT NULL default ''",
         ],
         'expirationdate' => [
             'exclude'   => true,
             'inputType' => 'text',
             'eval'      => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
-            'sql'       => 'varchar(11) NOT NULL default ""',
+            'sql'       => "varchar(255) NOT NULL default ''",
         ],
     ],
 ];
