@@ -26,7 +26,7 @@
     "phpoffice/phpspreadsheet": "^1.14"
   },
   "require-dev": {
-    "contao/easy-coding-standard": "^4.0"
+    "contao/easy-coding-standard": "^5.0"
   },
   "autoload": {
     "psr-4": {
