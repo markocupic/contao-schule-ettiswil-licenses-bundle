@@ -65,25 +65,25 @@ class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleC
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
         $arrLicenses = [];
-        $stmt = $this->get('database_connection')
+        $results = $this->get('database_connection')
             ->executeQuery(
                 'SELECT * FROM tl_schule_ettiswil_licenses ORDER BY department',
                 ['female']
             )
         ;
 
-        while (false !== ($objLicenses = $stmt->fetch(\PDO::FETCH_OBJ))) {
-            if(!empty($objLicenses->expirationdate))
+        while (false !== ($row = $results->fetchAssociative())) {
+            if(!empty($row['expirationdate']))
             {
-                $objLicenses->expirationdate = date('Y-m-d', (int) $objLicenses->expirationdate);
+                $row['expirationdate'] = date('Y-m-d', (int) $row['expirationdate']);
             }
 
-            if(!empty($objLicenses->tstamp))
+            if(!empty($row['tstamp']))
             {
-                $objLicenses->tstamp = date('Y-m-d', (int) $objLicenses->tstamp);
+                $row['tstamp'] = date('Y-m-d', (int) $row['tstamp']);
             }
 
-            $arrLicenses[] = $objLicenses;
+            $arrLicenses[] = $row;
         }
 
         $template->licenses = $arrLicenses;
