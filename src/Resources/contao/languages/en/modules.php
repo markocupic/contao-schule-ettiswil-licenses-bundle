@@ -18,7 +18,7 @@ $GLOBALS['TL_LANG']['MOD']['schule_ettiswil'] = 'Schule Ettiswil';
 $GLOBALS['TL_LANG']['MOD']['licenses'] = ['Lizenzen', 'Verwalten Sie die Schullizenzen'];
 
 /**
-* Frontend modules
-*/
+ * Frontend modules
+ */
 $GLOBALS['TL_LANG']['FMD']['schule_ettiswil'] = 'Schule Ettiswil';
 $GLOBALS['TL_LANG']['FMD']['schule_ettiswil_licenses_list_module'] = ['Schule Ettiswil Lizenzenauflistung', 'Erstellen Sie ein Lizenzenauflistungs-Modul'];

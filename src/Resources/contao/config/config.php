@@ -11,14 +11,16 @@
  *
  */
 
+use Markocupic\ContaoSchuleEttiswilLicensesBundle\Model\SchuleEttiswilLicensesModel;
+
 /**
  * Backend modules
  */
-$GLOBALS['BE_MOD']['schule_ettiswil']['licenses'] = array(
-'tables' => ['tl_schule_ettiswil_licenses']
-);
+$GLOBALS['BE_MOD']['schule_ettiswil']['licenses'] = [
+    'tables' => ['tl_schule_ettiswil_licenses'],
+];
 
 /**
  * Models
  */
-$GLOBALS['TL_MODELS']['tl_schule_ettiswil_licenses'] = \Markocupic\ContaoSchuleEttiswilLicensesBundle\Model\SchuleEttiswilLicensesModel::class;
+$GLOBALS['TL_MODELS']['tl_schule_ettiswil_licenses'] = SchuleEttiswilLicensesModel::class;

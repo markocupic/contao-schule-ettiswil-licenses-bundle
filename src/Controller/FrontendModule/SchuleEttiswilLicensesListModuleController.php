@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Markocupic\ContaoSchuleEttiswilLicensesBundle\Controller\FrontendModule;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
-use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\ModuleModel;
 use Contao\PageModel;
 use Contao\Template;
@@ -22,21 +21,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment as TwigEnvironment;
 
-/**
- * Class SchuleEttiswilLicensesListModuleController.
- */
 class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleController
 {
-    /**
-     * @var TwigEnvironment
-     */
-    protected $twig;
+    private Connection $connection;
+    private TwigEnvironment $twig;
 
-    /**
-     * SchuleEttiswilLicensesListModuleController constructor.
-     */
-    public function __construct(TwigEnvironment $twig)
+    public function __construct(Connection $connection, TwigEnvironment $twig)
     {
+        $this->connection = $connection;
         $this->twig = $twig;
     }
 
@@ -49,38 +41,22 @@ class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleC
         return parent::__invoke($request, $model, $section, $classes);
     }
 
-    /**
-     * Lazyload some services.
-     */
-    public static function getSubscribedServices(): array
-    {
-        $services = parent::getSubscribedServices();
-
-        $services['contao.framework'] = ContaoFramework::class;
-        $services['database_connection'] = Connection::class;
-
-        return $services;
-    }
-
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
         $arrLicenses = [];
-        $results = $this->get('database_connection')
+        $results = $this->connection
             ->executeQuery(
                 'SELECT * FROM tl_schule_ettiswil_licenses ORDER BY department',
-                ['female']
-            )
-        ;
+                [],
+            );
 
         while (false !== ($row = $results->fetchAssociative())) {
-            if(!empty($row['expirationdate']))
-            {
-                $row['expirationdate'] = date('Y-m-d', (int) $row['expirationdate']);
+            if (!empty($row['expirationdate'])) {
+                $row['expirationdate'] = date('Y-m-d', (int)$row['expirationdate']);
             }
 
-            if(!empty($row['tstamp']))
-            {
-                $row['tstamp'] = date('Y-m-d', (int) $row['tstamp']);
+            if (!empty($row['tstamp'])) {
+                $row['tstamp'] = date('Y-m-d', (int)$row['tstamp']);
             }
 
             $arrLicenses[] = $row;
@@ -88,14 +64,6 @@ class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleC
 
         $template->licenses = $arrLicenses;
 
-        /*
-         * Use twig template
-         */
-        return new Response($this->twig->render(
-            '@MarkocupicContaoSchuleEttiswilLicenses/FrontendModule/SchuleEttiswilLicensesListModule/mod_schule_ettiswil_licenses_list_module.html.twig',
-            [
-                'data' => $template,
-            ]
-        ));
+        return $template->getResponse();
     }
 }

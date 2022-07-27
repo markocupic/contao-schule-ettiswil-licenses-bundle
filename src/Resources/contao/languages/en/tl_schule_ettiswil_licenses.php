@@ -31,7 +31,6 @@ $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['title_legend'] = "Basis Eins
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['config_legend'] = "Erweiterte Einstellungen";
 $GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['expirationDate_legend'] = "Ablaufdatum Einstellungen";
 
-
 /**
  * Fields
  */
