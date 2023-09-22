@@ -22,7 +22,7 @@
     "source": "https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle"
   },
   "require": {
-    "contao/core-bundle": "^4.9",
+    "contao/core-bundle": "^4.13 || ^5.0",
     "phpoffice/phpspreadsheet": "^1.14"
   },
   "require-dev": {
