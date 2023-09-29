@@ -3,11 +3,13 @@
 declare(strict_types=1);
 
 /*
- * This file is part of markocupic/contao-schule-ettiswil-licenses-bundle.
+ * This file is part of Contao Schule Ettiswil Licenses Bundle.
  *
- * (c) Marko Cupic
- *
- * @license MIT
+ * (c) Marko Cupic 2023 <m.cupic@gmx.ch>
+ * @license GPL-3.0-or-later
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ * @link https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle
  */
 
 namespace Markocupic\ContaoSchuleEttiswilLicensesBundle\ExportData;
@@ -18,26 +20,17 @@ use PhpOffice\PhpSpreadsheet\Exception;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-/**
- * Class Excel.
- */
 class Excel
 {
-    /**
-     * @var ContaoFramework
-     */
-    private $framework;
+    private ContaoFramework $framework;
 
-    /**
-     * Excel constructor.
-     */
     public function __construct(ContaoFramework $framework)
     {
         $this->framework = $framework;
     }
 
     /**
-     * Send excel file to browser.
+     * Send MS Excel file to the browser.
      *
      * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception

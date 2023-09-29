@@ -1,49 +1,39 @@
 {
-  "name": "markocupic/contao-schule-ettiswil-licenses-bundle",
-  "description": "Schullizenzen verwalten und auflisten",
-  "keywords": [
-    "contao",
-    "bundle",
-    "admin software licenses",
-    "list software licenses"
-  ],
-  "type": "contao-bundle",
-  "license": "GPL-3.0-or-later",
-  "authors": [
-    {
-      "name": "Marko Cupic",
-      "email": "m.cupic@gmx.ch",
-      "homepage": "https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle",
-      "role": "Developer"
-    }
-  ],
-  "support": {
-    "issues": "https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle/issues",
-    "source": "https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle"
-  },
-  "require": {
-    "contao/core-bundle": "^4.13 || ^5.0",
-    "phpoffice/phpspreadsheet": "^1.14"
-  },
-  "require-dev": {
-    "contao/easy-coding-standard": "^5.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Markocupic\\ContaoSchuleEttiswilLicensesBundle\\": "src/"
-    },
-    "classmap": [
-      "src/Resources/contao"
+    "name": "markocupic/contao-schule-ettiswil-licenses-bundle",
+    "description": "Schullizenzen verwalten und auflisten",
+    "keywords": [
+        "contao",
+        "bundle",
+        "admin software licenses",
+        "list software licenses"
     ],
-    "exclude-from-classmap": [
-      "src/Resources/contao/config",
-      "src/Resources/contao/dca",
-      "src/Resources/contao/languages",
-      "src/Resources/contao/templates"
-    ]
-  },
-  "extra": {
-    "contao-manager-plugin": "Markocupic\\ContaoSchuleEttiswilLicensesBundle\\ContaoManager\\Plugin"
-  }
-
+    "type": "contao-bundle",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Marko Cupic",
+            "email": "m.cupic@gmx.ch",
+            "homepage": "https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle/issues",
+        "source": "https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle"
+    },
+    "require": {
+        "contao/core-bundle": "^4.13 || ^5.0",
+        "phpoffice/phpspreadsheet": "^1.14"
+    },
+    "require-dev": {
+        "contao/easy-coding-standard": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Markocupic\\ContaoSchuleEttiswilLicensesBundle\\": "src/"
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "Markocupic\\ContaoSchuleEttiswilLicensesBundle\\ContaoManager\\Plugin"
+    }
 }

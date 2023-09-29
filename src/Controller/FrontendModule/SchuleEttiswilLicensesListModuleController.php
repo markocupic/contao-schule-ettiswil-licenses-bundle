@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of markocupic/contao-schule-ettiswil-licenses-bundle.
+/**
+ * This file is part of a Marko Cupic Contao Schule Ettiswil Licenses Bundle.
  *
- * (c) Marko Cupic
+ * (c) Marko Cupic 2023 <m.cupic@gmx.ch>
  *
- * @license MIT
+ * @license    GPL-3.0-or-later
+ *
+ * @see        https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle
  */
 
 namespace Markocupic\ContaoSchuleEttiswilLicensesBundle\Controller\FrontendModule;
@@ -41,22 +43,23 @@ class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleC
         return parent::__invoke($request, $model, $section, $classes);
     }
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
+    protected function getResponse(Template $template, ModuleModel $model, Request $request): Response|null
     {
         $arrLicenses = [];
         $results = $this->connection
             ->executeQuery(
                 'SELECT * FROM tl_schule_ettiswil_licenses ORDER BY department',
                 [],
-            );
+            )
+        ;
 
         while (false !== ($row = $results->fetchAssociative())) {
             if (!empty($row['expirationdate'])) {
-                $row['expirationdate'] = date('Y-m-d', (int)$row['expirationdate']);
+                $row['expirationdate'] = date('Y-m-d', (int) $row['expirationdate']);
             }
 
             if (!empty($row['tstamp'])) {
-                $row['tstamp'] = date('Y-m-d', (int)$row['tstamp']);
+                $row['tstamp'] = date('Y-m-d', (int) $row['tstamp']);
             }
 
             $arrLicenses[] = $row;

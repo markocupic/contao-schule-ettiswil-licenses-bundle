@@ -1,43 +1,32 @@
 <?php
 
-/**
- * This file is part of a markocupic Contao Bundle.
- *
- * (c) Marko Cupic 2020 <m.cupic@gmx.ch>
- * @author     Marko Cupic
- * @package    Contao Schule Ettiswil Licenses
- * @license    GPL-3.0-or-later
- * @see        https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle
- *
- */
-
 declare(strict_types=1);
+
+/*
+ * This file is part of Contao Schule Ettiswil Licenses Bundle.
+ *
+ * (c) Marko Cupic 2023 <m.cupic@gmx.ch>
+ * @license GPL-3.0-or-later
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ * @link https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle
+ */
 
 namespace Markocupic\ContaoSchuleEttiswilLicensesBundle\ContaoManager;
 
+use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Markocupic\ContaoSchuleEttiswilLicensesBundle\MarkocupicContaoSchuleEttiswilLicensesBundle;
 
-/**
- * Class Plugin
- *
- * @package Markocupic\ContaoSchuleEttiswilLicensesBundle\ContaoManager
- */
 class Plugin implements BundlePluginInterface
 {
-    /**
-     * @param ParserInterface $parser
-     * @return array
-     */
-    public function getBundles(ParserInterface $parser)
+    public function getBundles(ParserInterface $parser): array
     {
-
         return [
-            BundleConfig::create('Markocupic\ContaoSchuleEttiswilLicensesBundle\MarkocupicContaoSchuleEttiswilLicensesBundle')
-                ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle']),
+            BundleConfig::create(MarkocupicContaoSchuleEttiswilLicensesBundle::class)
+                ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
-
 }
-

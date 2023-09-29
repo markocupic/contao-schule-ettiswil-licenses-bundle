@@ -12,11 +12,16 @@ declare(strict_types=1);
  * @link https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle
  */
 
-namespace Markocupic\ContaoSchuleEttiswilLicensesBundle\Model;
+use Markocupic\ContaoSchuleEttiswilLicensesBundle\Model\SchuleEttiswilLicensesModel;
 
-use Contao\Model;
+/**
+ * Backend modules
+ */
+$GLOBALS['BE_MOD']['schule_ettiswil']['licenses'] = [
+    'tables' => ['tl_schule_ettiswil_licenses'],
+];
 
-class SchuleEttiswilLicensesModel extends Model
-{
-    protected static $strTable = 'tl_schule_ettiswil_licenses';
-}
+/**
+ * Models
+ */
+$GLOBALS['TL_MODELS']['tl_schule_ettiswil_licenses'] = SchuleEttiswilLicensesModel::class;

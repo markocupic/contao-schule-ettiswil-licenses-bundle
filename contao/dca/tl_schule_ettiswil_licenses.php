@@ -1,24 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 /*
- * This file is part of markocupic/contao-schule-ettiswil-licenses-bundle.
+ * This file is part of Contao Schule Ettiswil Licenses Bundle.
  *
- * (c) Marko Cupic
- *
- * @license MIT
+ * (c) Marko Cupic 2023 <m.cupic@gmx.ch>
+ * @license GPL-3.0-or-later
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ * @link https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle
  */
 
+use Contao\DC_Table;
+use Contao\DataContainer;
 use Contao\Input;
 use Contao\System;
 use Markocupic\ContaoSchuleEttiswilLicensesBundle\ExportData\Excel;
 
-/**
- * Table tl_schule_ettiswil_licenses
- */
 $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
     // Config
     'config'      => [
-        'dataContainer'    => 'Table',
+        'dataContainer'    => DC_Table::class,
         'enableVersioning' => true,
         'sql'              => [
             'keys' => [
@@ -31,9 +34,9 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
     ],
     'list'        => [
         'sorting'           => [
-            'mode'        => 2,
+            'mode'        => DataContainer::MODE_SORTABLE,
             'fields'      => ['title', 'userid', 'passphrase', 'expirationdate', 'department', 'topic'],
-            'flag'        => 1,
+            'flag'        => DataContainer::SORT_INITIAL_LETTER_ASC,
             'panelLayout' => 'filter;sort,search,limit',
         ],
         'label'             => [
@@ -69,7 +72,7 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'delete' => [
                 'label'      => &$GLOBALS['TL_LANG']['tl_schule_ettiswil_licenses']['delete'],
                 'href'       => 'act=delete',
-                'icon'       => 'delete.gif', 
+                'icon'       => 'delete.gif',
                 'attributes' => 'onclick="if(!confirm(\''.($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null).'\'))return false;Backend.getScrollOffset()"',
             ],
             'show'   => [
@@ -83,7 +86,11 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
     // Palettes
     'palettes'    => [
         '__selector__' => ['addSubpalette'],
-        'default'      => '{title_legend},title,userid,passphrase,notice;{expirationDate_legend},expirationdate;{config_legend},department,topic',
+        'default'      => '
+        {title_legend},title,userid,passphrase,notice;
+        {expirationDate_legend},expirationdate;
+        {config_legend},department,topic
+        ',
     ],
     // Subpalettes
     'subpalettes' => [
@@ -103,7 +110,7 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'search'    => true,
             'filter'    => true,
             'sorting'   => true,
-            'flag'      => 1,
+            'flag'      => DataContainer::SORT_INITIAL_LETTER_ASC,
             'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'clr'],
             'sql'       => "varchar(255) NOT NULL default ''",
         ],
@@ -113,7 +120,7 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'search'    => true,
             'filter'    => true,
             'sorting'   => true,
-            'flag'      => 1,
+            'flag'      => DataContainer::SORT_INITIAL_LETTER_ASC,
             'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
             'sql'       => "varchar(255) NOT NULL default ''",
         ],
@@ -123,7 +130,7 @@ $GLOBALS['TL_DCA']['tl_schule_ettiswil_licenses'] = [
             'search'    => true,
             'filter'    => true,
             'sorting'   => true,
-            'flag'      => 1,
+            'flag'      => DataContainer::SORT_INITIAL_LETTER_ASC,
             'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
             'sql'       => "varchar(255) NOT NULL default ''",
         ],
