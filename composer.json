@@ -22,11 +22,11 @@
         "source": "https://github.com/markocupic/contao-schule-ettiswil-licenses-bundle"
     },
     "require": {
-        "contao/core-bundle": "^4.13 || ^5.0",
-        "phpoffice/phpspreadsheet": "^1.14"
+        "contao/core-bundle": "^5.7 || ^6.0",
+        "phpoffice/phpspreadsheet": "^5.0"
     },
     "require-dev": {
-        "contao/easy-coding-standard": "^5.0"
+        "markocupic/easy-coding-standard": "^13.0"
     },
     "autoload": {
         "psr-4": {
