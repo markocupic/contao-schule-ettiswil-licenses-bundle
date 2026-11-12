@@ -38,9 +38,9 @@ class SchuleEttiswilLicensesListModuleController extends AbstractFrontendModuleC
      * This method extends the parent __invoke method,
      * its usage is usually not necessary.
      */
-    public function __invoke(Request $request, ModuleModel $model, string $section, array $classes = null, PageModel $page = null): Response
+    public function __invoke(Request $request, ModuleModel $model, string $section, array|null $classes = null, PageModel|null $page = null): Response
     {
-        return parent::__invoke($request, $model, $section, $classes);
+        return parent::__invoke($request, $model, $section, $classes, $page);
     }
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
